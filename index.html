@@ -1,400 +1,1369 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dr. Hamid Fazal | Primary Care Management of IDD</title>
-    <style>
-        :root {
-            --primary: #1a365d;
-            --secondary: #2b6cb0;
-            --background: #f7fafc;
-            --surface: #ffffff;
-            --text: #2d3748;
-            --text-light: #718096;
-            --border: #e2e8f0;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Primary Care Management of Intellectual Disability (ID/IDD) - a practical clinical learning guide by Dr. Hamid Fazal, MBBS, MD (USA), PGD (Nutrition).">
+<title>Primary Care Management of Intellectual Disability | Dr. Hamid Fazal</title>
 
-        * {
-            box-sizing: border-box;
-        }
+<style>
+:root{
+  --navy:#17324d;
+  --blue:#246b9e;
+  --blue-light:#eaf4fb;
+  --teal:#147d7e;
+  --green:#2f855a;
+  --amber:#b7791f;
+  --red:#c53030;
+  --purple:#6b46c1;
+  --bg:#f5f7fa;
+  --surface:#ffffff;
+  --surface-2:#eef2f6;
+  --text:#263238;
+  --muted:#65727e;
+  --border:#d9e1e8;
+  --shadow:0 8px 24px rgba(23,50,77,.08);
+  --radius:14px;
+  --max:1180px;
+}
 
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            line-height: 1.6;
-            color: var(--text);
-            background-color: var(--background);
-            margin: 0;
-            padding: 0;
-        }
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.65;
+}
+a{color:var(--blue);text-decoration:none}
+a:hover{text-decoration:underline}
+button{font:inherit}
 
-        header {
-            background-color: var(--primary);
-            color: white;
-            padding: 2.5rem 1.5rem;
-            text-align: center;
-        }
+.topbar{
+  position:sticky;
+  top:0;
+  z-index:1000;
+  background:rgba(23,50,77,.97);
+  color:#fff;
+  box-shadow:0 2px 14px rgba(0,0,0,.15);
+}
+.topbar-inner{
+  max-width:var(--max);
+  margin:auto;
+  min-height:62px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:18px;
+  padding:0 18px;
+}
+.brand{
+  color:#fff;
+  font-weight:800;
+  letter-spacing:.2px;
+  white-space:nowrap;
+}
+.brand small{
+  display:block;
+  font-weight:400;
+  opacity:.78;
+  font-size:.72rem;
+}
+.navlinks{
+  display:flex;
+  gap:5px;
+  overflow:auto;
+  scrollbar-width:none;
+}
+.navlinks::-webkit-scrollbar{display:none}
+.navlinks a{
+  color:#fff;
+  opacity:.9;
+  padding:9px 11px;
+  border-radius:9px;
+  font-size:.88rem;
+  white-space:nowrap;
+}
+.navlinks a:hover{background:rgba(255,255,255,.12);text-decoration:none}
 
-        header h1 {
-            margin: 0 0 0.5rem 0;
-            font-size: 2.2rem;
-        }
+.hero{
+  background:linear-gradient(135deg,#17324d 0%,#246b9e 58%,#147d7e 100%);
+  color:#fff;
+  padding:70px 18px 62px;
+}
+.hero-inner{
+  max-width:var(--max);
+  margin:auto;
+  display:grid;
+  grid-template-columns:1.5fr .8fr;
+  gap:38px;
+  align-items:center;
+}
+.eyebrow{
+  display:inline-block;
+  padding:6px 11px;
+  border:1px solid rgba(255,255,255,.28);
+  background:rgba(255,255,255,.10);
+  border-radius:999px;
+  font-size:.78rem;
+  font-weight:700;
+  letter-spacing:.6px;
+  text-transform:uppercase;
+}
+.hero h1{
+  font-size:clamp(2.1rem,5vw,4rem);
+  line-height:1.08;
+  margin:18px 0 15px;
+}
+.hero p{
+  font-size:1.12rem;
+  max-width:760px;
+  opacity:.92;
+  margin:0 0 24px;
+}
+.hero-actions{display:flex;flex-wrap:wrap;gap:10px}
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  border:0;
+  border-radius:10px;
+  padding:11px 16px;
+  cursor:pointer;
+  font-weight:700;
+  text-decoration:none!important;
+}
+.btn-primary{background:#fff;color:var(--navy)}
+.btn-ghost{background:rgba(255,255,255,.12);color:#fff;border:1px solid rgba(255,255,255,.25)}
+.hero-card{
+  background:rgba(255,255,255,.10);
+  border:1px solid rgba(255,255,255,.22);
+  border-radius:18px;
+  padding:23px;
+  backdrop-filter:blur(8px);
+}
+.hero-card h3{margin-top:0}
+.hero-card ul{margin:12px 0 0;padding-left:19px}
 
-        header p {
-            margin: 0;
-            opacity: 0.9;
-            font-size: 1.1rem;
-        }
 
-        .container {
-            max-width: 1000px;
-            margin: 2rem auto;
-            padding: 0 1.5rem;
-        }
+.author-profile{
+  max-width:var(--max);
+  margin:28px auto 0;
+  padding:0 18px;
+}
+.author-card{
+  display:grid;
+  grid-template-columns:170px 1fr;
+  gap:28px;
+  align-items:center;
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  padding:24px 27px;
+}
+.author-photo-wrap{
+  text-align:center;
+}
+.author-photo{
+  width:150px;
+  height:150px;
+  object-fit:cover;
+  object-position:center;
+  border-radius:50%;
+  border:5px solid #fff;
+  box-shadow:0 5px 18px rgba(0,0,0,.14);
+  display:block;
+  margin:auto;
+}
+.author-photo-link{
+  display:inline-block;
+}
+.author-name{
+  margin:0 0 5px;
+  color:var(--navy);
+  font-size:1.55rem;
+}
+.author-credentials{
+  color:var(--blue);
+  font-weight:700;
+  margin:0 0 12px;
+}
+.author-intro{
+  margin:0;
+  color:#42515d;
+  line-height:1.75;
+}
+.author-label{
+  display:inline-block;
+  margin-bottom:8px;
+  font-size:.76rem;
+  font-weight:800;
+  letter-spacing:.7px;
+  text-transform:uppercase;
+  color:var(--blue);
+}
 
-        section {
-            background: var(--surface);
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-            margin-bottom: 2rem;
-        }
+.layout{
+  max-width:var(--max);
+  margin:28px auto 70px;
+  padding:0 18px;
+  display:grid;
+  grid-template-columns:250px 1fr;
+  gap:25px;
+}
+.sidebar{
+  position:sticky;
+  top:86px;
+  align-self:start;
+  max-height:calc(100vh - 105px);
+  overflow:auto;
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  padding:15px;
+  box-shadow:var(--shadow);
+}
+.sidebar strong{display:block;margin:4px 8px 10px;color:var(--navy)}
+.sidebar a{
+  display:block;
+  padding:8px 10px;
+  border-radius:8px;
+  color:var(--muted);
+  font-size:.88rem;
+}
+.sidebar a:hover{background:var(--blue-light);color:var(--blue);text-decoration:none}
 
-        .bio-card {
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            gap: 2rem;
-        }
+section{
+  scroll-margin-top:90px;
+  margin-bottom:26px;
+}
+.card{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  padding:27px;
+}
+h2{
+  color:var(--navy);
+  font-size:1.7rem;
+  line-height:1.25;
+  margin:0 0 18px;
+}
+h3{
+  color:var(--navy);
+  margin:24px 0 9px;
+  line-height:1.3;
+}
+h4{color:var(--blue);margin-bottom:6px}
+.lead{font-size:1.06rem;color:#42515d}
+.muted{color:var(--muted)}
+.small{font-size:.88rem}
+strong{color:#243b53}
 
-        .bio-img {
-            width: 160px;
-            height: 160px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 4px solid var(--secondary);
-            flex-shrink: 0;
-            background-color: #e2e8f0;
-        }
+.callout{
+  border-left:5px solid var(--blue);
+  background:var(--blue-light);
+  padding:15px 17px;
+  border-radius:0 10px 10px 0;
+  margin:18px 0;
+}
+.callout.success{border-left-color:var(--green);background:#edf8f1}
+.callout.warning{border-left-color:var(--amber);background:#fff8e8}
+.callout.danger{border-left-color:var(--red);background:#fff1f1}
+.callout.purple{border-left-color:var(--purple);background:#f5f0ff}
 
-        .bio-details {
-            flex-grow: 1;
-        }
+.grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:15px;
+}
+.grid-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.mini-card{
+  background:var(--surface-2);
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:17px;
+}
+.mini-card h3{margin-top:0;font-size:1.05rem}
 
-        .bio-details h2 {
-            margin: 0 0 0.2rem 0;
-            border-bottom: none;
-            padding-bottom: 0;
-            color: var(--primary);
-        }
+ul,ol{padding-left:22px}
+li{margin:5px 0}
 
-        .bio-subtitle {
-            color: var(--secondary);
-            font-weight: 600;
-            margin-top: 0;
-            margin-bottom: 0.8rem;
-        }
+table{
+  width:100%;
+  border-collapse:collapse;
+  margin:17px 0;
+  font-size:.92rem;
+  overflow:hidden;
+}
+th,td{
+  border:1px solid var(--border);
+  padding:11px 12px;
+  vertical-align:top;
+  text-align:left;
+}
+th{background:var(--navy);color:#fff}
+tr:nth-child(even) td{background:#fafbfd}
 
-        h2 {
-            color: var(--primary);
-            border-bottom: 2px solid var(--border);
-            padding-bottom: 0.5rem;
-            margin-top: 0;
-        }
+.badge{
+  display:inline-block;
+  border-radius:999px;
+  padding:4px 9px;
+  font-size:.74rem;
+  font-weight:800;
+  background:var(--blue-light);
+  color:var(--blue);
+  margin:2px 3px 2px 0;
+}
 
-        h3 {
-            color: var(--secondary);
-            margin-top: 1.5rem;
-        }
+.step-list{counter-reset:step;list-style:none;padding:0}
+.step-list li{
+  counter-increment:step;
+  display:flex;
+  gap:13px;
+  margin:12px 0;
+  align-items:flex-start;
+}
+.step-list li::before{
+  content:counter(step);
+  flex:0 0 31px;
+  height:31px;
+  border-radius:50%;
+  background:var(--blue);
+  color:#fff;
+  display:grid;
+  place-items:center;
+  font-weight:800;
+}
 
-        ul {
-            padding-left: 1.2rem;
-        }
+.workflow{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:10px;
+  margin-top:18px;
+}
+.workflow div{
+  background:var(--surface-2);
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:13px;
+  text-align:center;
+  font-weight:700;
+  font-size:.86rem;
+}
+.workflow div::after{content:"→";display:block;color:var(--blue);font-size:1.2rem;margin-top:5px}
+.workflow div:last-child::after{content:"✓";color:var(--green)}
 
-        li {
-            margin-bottom: 0.5rem;
-        }
+details{
+  border:1px solid var(--border);
+  border-radius:11px;
+  margin:10px 0;
+  background:#fff;
+}
+summary{
+  cursor:pointer;
+  padding:13px 15px;
+  font-weight:750;
+  color:var(--navy);
+}
+details .details-body{padding:0 15px 15px}
 
-        .table-wrapper {
-            overflow-x: auto;
-            margin: 1.5rem 0;
-        }
+.quiz{
+  background:linear-gradient(135deg,#f6fbff,#f0f8f7);
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:20px;
+}
+.quiz button{
+  margin:5px 5px 0 0;
+  border:1px solid var(--border);
+  background:#fff;
+  color:var(--text);
+  border-radius:8px;
+  padding:8px 11px;
+  cursor:pointer;
+}
+.quiz button:hover{border-color:var(--blue);color:var(--blue)}
+.answer{
+  display:none;
+  margin-top:12px;
+  padding:12px;
+  background:#edf8f1;
+  border-left:4px solid var(--green);
+  border-radius:7px;
+}
 
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            text-align: left;
-        }
+.search-box{
+  position:relative;
+  margin-bottom:18px;
+}
+.search-box input{
+  width:100%;
+  padding:13px 15px 13px 40px;
+  border:1px solid var(--border);
+  border-radius:10px;
+  background:#fff;
+  font-size:.95rem;
+}
+.search-icon{
+  position:absolute;
+  left:14px;
+  top:11px;
+  color:var(--muted);
+}
 
-        th, td {
-            padding: 0.75rem 1rem;
-            border: 1px solid var(--border);
-        }
+.checklist label{
+  display:block;
+  padding:9px 10px;
+  border-bottom:1px solid var(--border);
+}
+.checklist input{margin-right:9px}
 
-        th {
-            background-color: #edf2f7;
-            color: var(--primary);
-            font-weight: 600;
-        }
+footer{
+  background:var(--navy);
+  color:#fff;
+  padding:32px 18px;
+}
+.footer-inner{max-width:var(--max);margin:auto}
+.footer-inner a{color:#bfe2ff}
 
-        tr:nth-child(even) {
-            background-color: #f8fafc;
-        }
+.backtop{
+  position:fixed;
+  right:18px;
+  bottom:18px;
+  width:42px;
+  height:42px;
+  border:0;
+  border-radius:50%;
+  background:var(--navy);
+  color:#fff;
+  cursor:pointer;
+  box-shadow:0 5px 15px rgba(0,0,0,.2);
+}
 
-        .highlight-box {
-            background-color: #ebf8ff;
-            border-left: 4px solid var(--secondary);
-            padding: 1rem 1.2rem;
-            margin: 1.5rem 0;
-            border-radius: 0 4px 4px 0;
-        }
+@media(max-width:900px){
+  .author-card{grid-template-columns:130px 1fr}
+  .author-photo{width:120px;height:120px}
+  .hero-inner{grid-template-columns:1fr}
+  .layout{grid-template-columns:1fr}
+  .sidebar{
+    position:relative;
+    top:auto;
+    max-height:none;
+  }
+  .workflow{grid-template-columns:repeat(3,1fr)}
+}
+@media(max-width:650px){
+  .author-profile{padding:0 12px;margin-top:16px}
+  .author-card{grid-template-columns:1fr;text-align:center;padding:22px 18px}
+  .author-photo{width:125px;height:125px}
+  .author-intro{text-align:left}
+  .topbar-inner{padding:8px 12px;align-items:flex-start}
+  .navlinks{display:none}
+  .hero{padding:48px 15px}
+  .layout{padding:0 12px;margin-top:16px}
+  .card{padding:19px}
+  .grid,.grid-3{grid-template-columns:1fr}
+  .workflow{grid-template-columns:1fr}
+  table{display:block;overflow-x:auto;white-space:normal}
+  h2{font-size:1.45rem}
+}
 
-        .highlight-box ul {
-            margin: 0.5rem 0 0 0;
-        }
-
-        footer {
-            text-align: center;
-            padding: 2rem;
-            color: var(--text-light);
-            font-size: 0.9rem;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            header h1 {
-                font-size: 1.75rem;
-            }
-
-            header p {
-                font-size: 1rem;
-            }
-
-            section {
-                padding: 1.25rem;
-            }
-
-            .bio-card {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .bio-img {
-                width: 130px;
-                height: 130px;
-            }
-
-            th, td {
-                padding: 0.5rem 0.75rem;
-                font-size: 0.9rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            header {
-                padding: 1.5rem 1rem;
-            }
-
-            header h1 {
-                font-size: 1.4rem;
-            }
-
-            section {
-                padding: 1rem;
-            }
-
-            .bio-img {
-                width: 110px;
-                height: 110px;
-            }
-
-            th, td {
-                padding: 0.4rem 0.5rem;
-                font-size: 0.8rem;
-            }
-
-            .container {
-                padding: 0 0.75rem;
-            }
-        }
-    </style>
+@media print{
+  .topbar,.sidebar,.hero-actions,.search-box,.backtop,.quiz button{display:none!important}
+  body{background:#fff;font-size:10pt}
+  .layout{display:block;max-width:none;margin:0;padding:0}
+  .card{box-shadow:none;border:0;padding:10px}
+  section{break-inside:auto}
+  a{color:#000;text-decoration:none}
+}
+</style>
 </head>
+
 <body>
 
-    <header>
-        <h1>Primary Care Management of IDD</h1>
-        <p>A Resource-Limited Clinical Guide & Behavioral Tracking Framework</p>
-    </header>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="#top">Dr. Hamid Fazal <small>Clinical Learning Resource</small></a>
+    <nav class="navlinks" aria-label="Main navigation">
+      <a href="#overview">Overview</a>
+      <a href="#assessment">Assessment</a>
+      <a href="#behavior">Behavior</a>
+      <a href="#management">Management</a>
+      <a href="#epilepsy">Epilepsy</a>
+      <a href="#safeguarding">Safety</a>
+      <a href="#workflow">Workflow</a>
+    </nav>
+  </div>
+</header>
 
-    <div class="container">
-
-        <!-- Author Bio Section -->
-        <section>
-            <div class="bio-card">
-                <img 
-                    src="https://i.ibb.co/HfqhCYsX/profile.jpg" 
-                    alt="Dr. Hamid Fazal" 
-                    class="bio-img" 
-                    onerror="this.onerror=null; this.src='https://via.placeholder.com/160?text=Dr.+Hamid+Fazal';"
-                >
-                <div class="bio-details">
-                    <h2>Dr. Hamid Fazal</h2>
-                    <div class="bio-subtitle">MBBS, MD (USA), PGD (Nutrition)</div>
-                    <p>Dr. Hamid Fazal is a physician working at the intersection of chronic disease and mental health. He has experience in ICU medicine, CKD, and dialysis care, and served for four years as OPD In-charge managing patients with chronic kidney disease, diabetes, and hypertension. He is also involved in psychiatry community outreach services, including care for patients with neurodevelopmental and neurocognitive disorders such as epilepsy, cerebral palsy, intellectual disability, and behavioral conditions. His clinical and academic interests include neuropsychiatry, cognitive aging, dementia, nutrition in chronic disease, and psychiatric manifestations of chronic medical illnesses.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Core Framework -->
-        <section>
-            <h2>1. Core Framework & Model Shift</h2>
-            <ul>
-                <li>
-                    <strong>Terminology Transition:</strong> Shift diagnostic terminology from "Mental Retardation" to <em>Intellectual Disability (ID)</em> or <em>Intellectual and Developmental Disability (IDD)</em> to eliminate clinical stigma.
-                </li>
-                <li>
-                    <strong>Neurodiversity Approach:</strong> Structure management around maximizing adaptive functioning, independence, and daily living skills rather than focusing on a baseline "cure."
-                </li>
-            </ul>
-        </section>
-
-        <!-- Functional Assessment -->
-        <section>
-            <h2>2. Functional Severity & Etiology Assessment</h2>
-            <p>In low-resource settings lacking advanced genetic or neuroimaging tests, focus clinical evaluation on functional assessment across three primary domains:</p>
-            
-            <h3>Adaptive Domains</h3>
-            <ul>
-                <li><strong>Conceptual:</strong> Communication, functional literacy, basic numeracy, money, and time management.</li>
-                <li><strong>Social:</strong> Interpersonal interactions, social evaluation, empathy, and vulnerability to exploitation.</li>
-                <li><strong>Practical:</strong> Personal hygiene, dressing, mobility, domestic care, personal safety, and employment.</li>
-            </ul>
-
-            <h3>Functional Severity Classification</h3>
-            <ul>
-                <li><strong>Mild:</strong> Capable of independent living and simple employment with periodic, targeted support.</li>
-                <li><strong>Moderate:</strong> Capable of self-care with guidance; needs ongoing family or community support.</li>
-                <li><strong>Severe / Profound:</strong> Requires daily intensive support for basic activities of daily living (ADLs).</li>
-            </ul>
-        </section>
-
-        <!-- The HELP Framework -->
-        <section>
-            <h2>3. Acute Behavioral Changes: The "HELP" Rule-Out Framework</h2>
-            <p>Do not immediately attribute acute behavioral shifts (e.g., aggression, self-injury, regression) to psychiatric causes or the underlying IDD. Systematic physical evaluation should precede behavioral interventions.</p>
-
-            <div class="table-wrapper">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Domain</th>
-                            <th>Reversible Causes to Rule Out First</th>
-                            <th>Clinical Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><strong>H – Health (Physical)</strong></td>
-                            <td>Dental caries, acute constipation, UTI, GERD, hidden fractures, otitis media, drug side effects.</td>
-                            <td>Perform physical exam, inspect mouth/ears, check abdomen, run urinalysis/CBC, review drug list.</td>
-                        </tr>
-                        <tr>
-                            <td><strong>E – Environment</strong></td>
-                            <td>Household changes, excessive noise, loss of caregiver, heat stress, schedule disruptions.</td>
-                            <td>Simplify daily routine, adjust lighting and noise exposure, maintain predictable routines.</td>
-                        </tr>
-                        <tr>
-                            <td><strong>L – Living Situation</strong></td>
-                            <td>Neglect, physical/sexual abuse, exploitation, household conflicts.</td>
-                            <td>Conduct private screening without family present; check for unexplained bruising or trauma.</td>
-                        </tr>
-                        <tr>
-                            <td><strong>P – Psychiatric</strong></td>
-                            <td>Co-occurring Bipolar Disorder, Major Depression, Anxiety, or Psychosis.</td>
-                            <td>Evaluate using adapted tools focusing on vegetative signs (sleep, appetite shifts).</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </section>
-
-        <!-- Managing Co-Occurring Conditions -->
-        <section>
-            <h2>4. Management of Co-Occurring Conditions</h2>
-            
-            <h3>Epilepsy Co-Management</h3>
-            <ul>
-                <li><strong>Prevalence:</strong> Co-occurs in up to 30% of individuals with IDD.</li>
-                <li><strong>Pharmacotherapy:</strong> Prioritize broad-spectrum antiepileptic drugs (AEDs) like Valproic Acid or Levetiracetam, which cover multiple seizure patterns and double as mood stabilizers for Bipolar Disorder.</li>
-                <li><strong>Behavioral Monitoring:</strong> Monitor Levetiracetam for potential worsening of agitation/aggression; monitor Topiramate for cognitive slowing.</li>
-            </ul>
-
-            <h3>Psychiatric Interventions</h3>
-            <ul>
-                <li><strong>Start Low, Go Slow:</strong> Patients with IDD are uniquely susceptible to extrapyramidal side effects (EPS), excessive sedation, and paradoxical reactions.</li>
-                <li><strong>Targeted Use:</strong> Reserve psychotropics for specific target symptoms (e.g., severe aggression, extreme agitation), avoiding their use as chemical restraints.</li>
-                <li><strong>First-Line Options:</strong> Low-dose atypical antipsychotics (Risperidone 0.25–1 mg/day or Aripiprazole 2.5–5 mg/day) when non-pharmacological methods fail. Routinely track weight and metabolic markers.</li>
-            </ul>
-        </section>
-
-        <!-- ABC Log Guide -->
-        <section>
-            <h2>5. Caregiver Tool: Behavioral Tracking Log (ABC Log)</h2>
-            <p>For non-verbal or communicatively impaired individuals, behaviors like aggression or self-injury are often functional expressions of unaddressed needs. The ABC Log identifies underlying triggers to avoid unnecessary polypharmacy.</p>
-
-            <div class="highlight-box">
-                <strong>Components of the ABC Log:</strong>
-                <ul>
-                    <li><strong>A – Antecedent:</strong> Events or environmental factors occurring immediately before the behavior.</li>
-                    <li><strong>B – Behavior:</strong> Clear, observable, and measurable actions described objectively.</li>
-                    <li><strong>C – Consequence:</strong> Immediate actions or environmental changes occurring after the behavior.</li>
-                </ul>
-            </div>
-
-            <h3>Caregiver Sample Tracking Template</h3>
-            <div class="table-wrapper">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Date &amp; Time</th>
-                            <th>Antecedent (Before)</th>
-                            <th>Behavior (Action)</th>
-                            <th>Consequence (After)</th>
-                            <th>Possible Trigger / Notes</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Oct 10, 2:00 PM</td>
-                            <td>Asked patient to sit for lunch while loud street music played.</td>
-                            <td>Slapped face 3 times and dropped to the floor.</td>
-                            <td>Lights turned off, ears covered, lunch delayed.</td>
-                            <td>Sensory overload (loud noise) + transition demand.</td>
-                        </tr>
-                        <tr>
-                            <td>[Date/Time]</td>
-                            <td>[What happened right before?]</td>
-                            <td>[Exact behavior observed]</td>
-                            <td>[What happened immediately after?]</td>
-                            <td>[Notes on pain, environment, or needs]</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <h3>Clinic Log Pattern Analysis</h3>
-            <ul>
-                <li><strong>Sensory Overload / Escape:</strong> Behaviors triggered by noise, crowds, or demands. <em>Action:</em> Adapt the environment and simplify tasks.</li>
-                <li><strong>Physical Pain:</strong> Outbursts recurring at specific times relative to meals, bowel movements, or rest. <em>Action:</em> Screen for constipation, GERD, dental caries, or UTIs.</li>
-                <li><strong>Tangible/Attention Seeking:</strong> Behaviors triggered when items are removed or attention shifts. <em>Action:</em> Train caregivers in positive reinforcement strategies.</li>
-            </ul>
-        </section>
-
+<header class="hero" id="top">
+  <div class="hero-inner">
+    <div>
+      <span class="eyebrow">Primary & Community Care</span>
+      <h1>Primary Care Management of Intellectual Disability</h1>
+      <p>
+        A practical clinical guide to assessment, functional formulation, medical and psychiatric comorbidity,
+        challenging behavior, caregiver support, safeguarding and longitudinal care in resource-limited settings.
+      </p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#assessment">Start the clinical guide</a>
+        <button class="btn btn-ghost" onclick="window.print()">Print / Save PDF</button>
+      </div>
     </div>
 
-    <footer>
-        <p>Primary Care Clinical Resource | Intellectual &amp; Developmental Disabilities Management Guide | Authored by Dr. Hamid Fazal</p>
-    </footer>
+    <aside class="hero-card">
+      <h3>Core clinical principle</h3>
+      <p>Do not ask only, <strong>“What is the diagnosis?”</strong></p>
+      <p>Also ask:</p>
+      <ul>
+        <li>How does this person function?</li>
+        <li>What has changed from baseline?</li>
+        <li>Could pain or physical illness explain the change?</li>
+        <li>What support does the person and caregiver need?</li>
+      </ul>
+    </aside>
+  </div>
+</header>
+
+
+<section class="author-profile" id="author">
+  <div class="author-card">
+    <div class="author-photo-wrap">
+      <a class="author-photo-link"
+         href="https://ibb.co/HfqhCYsX"
+         target="_blank"
+         rel="noopener"
+         aria-label="View Dr. Hamid Fazal's profile image">
+        <img
+          class="author-photo"
+          src="https://i.ibb.co/bMXbFLZ7/IMG-20260219-WA0025.jpg"
+          alt="Dr. Hamid Fazal providing clinical care in a community outpatient setting"
+          loading="lazy">
+      </a>
+    </div>
+    <div>
+      <span class="author-label">About the author</span>
+      <h2 class="author-name">Dr. Hamid Fazal</h2>
+      <p class="author-credentials">MBBS, MD (USA), PGD (Nutrition)</p>
+      <p class="author-intro">
+        Dr. Hamid Fazal, MBBS, MD (USA), PGD (Nutrition), is a physician working at the intersection
+        of chronic disease and mental health. He has experience in ICU medicine, CKD and dialysis care,
+        and served for four years as OPD In-charge managing patients with chronic kidney disease,
+        diabetes, and hypertension. He is also involved in psychiatry community outreach services,
+        including care for patients with neurodevelopmental and neurocognitive disorders such as
+        epilepsy, cerebral palsy, intellectual disability, and behavioral conditions. His clinical and
+        academic interests include neuropsychiatry, cognitive aging, dementia, nutrition in chronic
+        disease, and psychiatric manifestations of chronic medical illnesses.
+      </p>
+    </div>
+  </div>
+</section>
+
+<main class="layout">
+
+<aside class="sidebar">
+  <strong>Contents</strong>
+  <a href="#author">About Dr. Hamid Fazal</a>
+  <a href="#overview">1. Core framework</a>
+  <a href="#terminology">2. Terminology & distinctions</a>
+  <a href="#diagnosis">3. Diagnostic framework</a>
+  <a href="#assessment">4. Functional assessment</a>
+  <a href="#history">5. Clinical history</a>
+  <a href="#physical">6. Physical assessment</a>
+  <a href="#help">7. HELP framework</a>
+  <a href="#behavior">8. Challenging behavior</a>
+  <a href="#communication">9. Communication</a>
+  <a href="#psychiatry">10. Psychiatric comorbidity</a>
+  <a href="#management">11. Management principles</a>
+  <a href="#epilepsy">12. Epilepsy & neurology</a>
+  <a href="#capacity">13. Capacity & consent</a>
+  <a href="#safeguarding">14. Safeguarding</a>
+  <a href="#caregiver">15. Caregiver care</a>
+  <a href="#prevention">16. Preventive care</a>
+  <a href="#referral">17. Referral</a>
+  <a href="#workflow">18. Clinical workflow</a>
+  <a href="#cases">19. Cases</a>
+  <a href="#quiz">20. Quick self-test</a>
+  <a href="#references">References</a>
+</aside>
+
+<div>
+
+<section id="overview">
+<div class="card">
+  <h2>1. Core Framework & Model Shift</h2>
+  <p class="lead">
+    Intellectual disability (ID) is a neurodevelopmental condition involving significant limitations in intellectual
+    functioning and adaptive functioning, with onset during the developmental period.
+  </p>
+
+  <div class="callout success">
+    <strong>The model shift:</strong> move away from an IQ-only or “deficit” model toward a
+    <strong>function + support + participation</strong> model.
+  </div>
+
+  <div class="grid grid-3">
+    <div class="mini-card">
+      <h3>Function</h3>
+      <p>What can the person actually understand, communicate and do in everyday life?</p>
+    </div>
+    <div class="mini-card">
+      <h3>Support</h3>
+      <p>What level of assistance is needed for self-care, safety, decisions and community participation?</p>
+    </div>
+    <div class="mini-card">
+      <h3>Participation</h3>
+      <p>How can health care help the person participate in family, education, work and community life?</p>
+    </div>
+  </div>
+
+  <h3>What primary care should aim to achieve</h3>
+  <ul>
+    <li>Maximize health, independence, communication and quality of life.</li>
+    <li>Identify and treat preventable medical and psychiatric problems.</li>
+    <li>Recognize behavioral change as a possible expression of pain, distress or unmet need.</li>
+    <li>Support caregivers and reduce avoidable caregiver burden.</li>
+    <li>Provide appropriate referral when specialist assessment is required.</li>
+  </ul>
+
+  <div class="callout">
+    WHO's mhGAP approach is designed to support evidence-based assessment and management in
+    non-specialized health-care settings, particularly where specialist resources are limited.
+  </div>
+</div>
+</section>
+
+<section id="terminology">
+<div class="card">
+  <h2>2. Terminology & Important Distinctions</h2>
+
+  <p>The historical term <strong>“mental retardation”</strong> is outdated and stigmatizing. Prefer
+  <strong>intellectual disability (ID)</strong>. The term <strong>intellectual and developmental disability (IDD)</strong>
+  can be used when discussing the wider developmental context.</p>
+
+  <div class="grid">
+    <div class="mini-card">
+      <h3>ID ≠ Mental Illness</h3>
+      <p>A person can have ID without a psychiatric disorder, or can have both ID and depression, anxiety, psychosis or bipolar disorder.</p>
+    </div>
+    <div class="mini-card">
+      <h3>ID ≠ Autism</h3>
+      <p>Autism and ID are distinct conditions, although they may coexist.</p>
+    </div>
+    <div class="mini-card">
+      <h3>ID ≠ Specific Learning Disorder</h3>
+      <p>Difficulty with reading, writing or mathematics alone does not establish global intellectual and adaptive impairment.</p>
+    </div>
+    <div class="mini-card">
+      <h3>ID ≠ Dementia</h3>
+      <p>ID begins during development. Dementia involves acquired decline from a previous level of functioning.</p>
+    </div>
+  </div>
+</div>
+</section>
+
+<section id="diagnosis">
+<div class="card">
+  <h2>3. Diagnostic Framework</h2>
+  <p class="lead">Think in three domains rather than starting with an IQ number.</p>
+
+  <table>
+    <thead>
+      <tr><th>Domain</th><th>What it means clinically</th><th>Primary-care questions</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Intellectual functioning</strong></td>
+        <td>Reasoning, learning, problem solving, planning, judgment and learning from experience.</td>
+        <td>How does the person learn? Can they solve simple problems? Understand consequences?</td>
+      </tr>
+      <tr>
+        <td><strong>Adaptive functioning</strong></td>
+        <td>Ability to manage everyday conceptual, social and practical demands.</td>
+        <td>Can the person communicate, manage hygiene, money, medication, safety and relationships?</td>
+      </tr>
+      <tr>
+        <td><strong>Developmental onset</strong></td>
+        <td>The difficulties were present during the developmental period.</td>
+        <td>When were developmental delays first noticed? What was the school/developmental history?</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="callout warning">
+    <strong>Clinical caution:</strong> an informal clinical impression is not equivalent to formal psychometric assessment.
+    In primary care, the goal may be to identify likely ID, characterize support needs, identify comorbidity and arrange appropriate referral.
+  </div>
+</div>
+</section>
+
+<section id="assessment">
+<div class="card">
+  <h2>4. Functional Assessment</h2>
+  <p class="lead">The most useful primary-care question is often: <strong>“What can this person do in real life, and what support do they require?”</strong></p>
+
+  <table>
+    <thead>
+      <tr><th>Adaptive domain</th><th>Assess</th><th>Examples</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Conceptual</strong></td>
+        <td>Communication, literacy, numeracy, money, time, planning.</td>
+        <td>Understanding instructions, reading simple labels, counting money, understanding time.</td>
+      </tr>
+      <tr>
+        <td><strong>Social</strong></td>
+        <td>Relationships, social judgment, boundaries, reciprocity, vulnerability.</td>
+        <td>Recognizing unsafe situations, seeking help, understanding personal boundaries.</td>
+      </tr>
+      <tr>
+        <td><strong>Practical</strong></td>
+        <td>Self-care, domestic skills, mobility, safety, work.</td>
+        <td>Bathing, dressing, toileting, cooking, medication use, road safety, simple employment.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>Support needs: a practical interpretation</h3>
+  <div class="grid grid-3">
+    <div class="mini-card">
+      <span class="badge">Milder support needs</span>
+      <p>May perform many self-care and community tasks with targeted or intermittent support.</p>
+    </div>
+    <div class="mini-card">
+      <span class="badge">Moderate support needs</span>
+      <p>Often requires regular guidance for complex daily activities and decision-making.</p>
+    </div>
+    <div class="mini-card">
+      <span class="badge">Extensive support needs</span>
+      <p>May require substantial or pervasive assistance with communication, self-care and safety.</p>
+    </div>
+  </div>
+
+  <div class="callout purple">
+    <strong>Important:</strong> support needs are influenced by communication, motor disability, epilepsy, sensory impairment,
+    autism, family resources, environment and learned skills—not simply by a numerical IQ.
+  </div>
+</div>
+</section>
+
+<section id="history">
+<div class="card">
+  <h2>5. Clinical History</h2>
+
+  <div class="grid">
+    <div class="mini-card">
+      <h3>Developmental history</h3>
+      <ul>
+        <li>Pregnancy and birth complications</li>
+        <li>Prematurity/neonatal illness</li>
+        <li>Developmental milestones</li>
+        <li>Language and motor development</li>
+        <li>Previous assessments and school history</li>
+      </ul>
+    </div>
+
+    <div class="mini-card">
+      <h3>Current functioning</h3>
+      <ul>
+        <li>Communication style</li>
+        <li>Self-care and domestic skills</li>
+        <li>Mobility and falls</li>
+        <li>Education/work/vocation</li>
+        <li>Community independence</li>
+      </ul>
+    </div>
+
+    <div class="mini-card">
+      <h3>Medical history</h3>
+      <ul>
+        <li>Seizures/epilepsy</li>
+        <li>Vision and hearing</li>
+        <li>Dental disease</li>
+        <li>Constipation/reflux</li>
+        <li>Sleep problems</li>
+        <li>Medication effects</li>
+      </ul>
+    </div>
+
+    <div class="mini-card">
+      <h3>Psychiatric history</h3>
+      <ul>
+        <li>Change in mood or sleep</li>
+        <li>Anxiety or trauma symptoms</li>
+        <li>Psychotic symptoms</li>
+        <li>Mania/hypomania</li>
+        <li>Self-injury or aggression</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>Social and caregiver history</h3>
+  <ul>
+    <li>Who provides daily care?</li>
+    <li>Has there been a caregiver change, bereavement, relocation or family conflict?</li>
+    <li>Is the caregiver exhausted or unsupported?</li>
+    <li>Are there financial or transport barriers?</li>
+    <li>Could neglect, abuse, coercion or exploitation be present?</li>
+  </ul>
+</div>
+</section>
+
+<section id="physical">
+<div class="card">
+  <h2>6. Physical Assessment: Look for Treatable Causes</h2>
+
+  <p class="lead">
+    A new behavioral change may be the patient's way of communicating pain or illness.
+    Physical assessment should therefore be part of the initial response.
+  </p>
+
+  <div class="grid">
+    <div class="mini-card">
+      <h3>Oral & dental</h3>
+      <p>Caries, gingivitis, abscess, chewing difficulty.</p>
+    </div>
+    <div class="mini-card">
+      <h3>GI / bowel</h3>
+      <p>Constipation, abdominal pain, reflux, altered bowel habits.</p>
+    </div>
+    <div class="mini-card">
+      <h3>Neurological</h3>
+      <p>Seizures, postictal states, focal signs, gait change, movement disorder.</p>
+    </div>
+    <div class="mini-card">
+      <h3>Sensory</h3>
+      <p>Hearing and vision impairment can present as withdrawal or behavior change.</p>
+    </div>
+    <div class="mini-card">
+      <h3>Medication</h3>
+      <p>New drugs, dose changes, sedation, akathisia, extrapyramidal symptoms or behavioral adverse effects.</p>
+    </div>
+    <div class="mini-card">
+      <h3>Sleep</h3>
+      <p>Sleep deprivation, fragmented sleep, snoring, possible sleep-disordered breathing.</p>
+    </div>
+  </div>
+
+  <div class="callout danger">
+    <strong>Red flag:</strong> sudden regression, delirium, severe self-injury, unexplained injury, new neurological deficit,
+    prolonged seizure, severe infection or immediate danger to self/others requires urgent assessment.
+  </div>
+</div>
+</section>
+
+<section id="help">
+<div class="card">
+  <h2>7. HELP Framework for Acute Behavioral Change</h2>
+  <p class="lead">Use HELP as a rapid clinical memory aid. It complements—not replaces—a full assessment.</p>
+
+  <table>
+    <thead>
+      <tr><th>Letter</th><th>Think about</th><th>Examples / action</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>H — Health</strong></td>
+        <td>Pain and physical illness</td>
+        <td>Dental disease, constipation, UTI, reflux, otitis, fracture, infection, medication adverse effects.</td>
+      </tr>
+      <tr>
+        <td><strong>E — Environment</strong></td>
+        <td>Overload or disruption</td>
+        <td>Noise, heat, crowding, unfamiliar staff, changed routine. Restore predictability.</td>
+      </tr>
+      <tr>
+        <td><strong>L — Living situation</strong></td>
+        <td>Safeguarding and relationships</td>
+        <td>Neglect, abuse, exploitation, caregiver conflict, loss of a familiar person.</td>
+      </tr>
+      <tr>
+        <td><strong>P — Psychiatric</strong></td>
+        <td>Mental disorder / emotional distress</td>
+        <td>Depression, anxiety, psychosis, bipolar disorder, trauma-related symptoms.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="workflow">
+    <div>Establish baseline</div>
+    <div>Identify change</div>
+    <div>Check HELP</div>
+    <div>Assess function</div>
+    <div>Plan & follow-up</div>
+  </div>
+</div>
+</section>
+
+<section id="behavior">
+<div class="card">
+  <h2>8. Challenging Behaviour: Behavior Is Communication</h2>
+
+  <p>
+    “Challenging behavior” is a description of behavior that creates risk, distress or major functional difficulty.
+    It is not itself an explanation of why the behavior occurs.
+  </p>
+
+  <div class="callout success">
+    Before asking <strong>“Which medicine should I use?”</strong>, ask
+    <strong>“What function is this behavior serving?”</strong>
+  </div>
+
+  <h3>ABC Functional Assessment</h3>
+  <table>
+    <thead>
+      <tr><th>A — Antecedent</th><th>B — Behavior</th><th>C — Consequence</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>What happened immediately before?</td>
+        <td>What exactly did the person do?</td>
+        <td>What happened immediately afterward?</td>
+      </tr>
+      <tr>
+        <td>Demand? transition? noise? pain? denied item? social interaction?</td>
+        <td>Describe observable behavior, frequency, duration and intensity.</td>
+        <td>Did the demand stop? Did the person receive attention, escape, an item or sensory relief?</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>Common functional hypotheses</h3>
+  <div class="grid grid-3">
+    <div class="mini-card"><strong>Escape</strong><p>Avoidance of a difficult demand or unpleasant environment.</p></div>
+    <div class="mini-card"><strong>Attention</strong><p>Access to social interaction or reassurance.</p></div>
+    <div class="mini-card"><strong>Tangible</strong><p>Access to food, objects, activities or preferred items.</p></div>
+    <div class="mini-card"><strong>Sensory</strong><p>Seeking or avoiding particular sensory experiences.</p></div>
+    <div class="mini-card"><strong>Communication</strong><p>Expressing a need when verbal communication is limited.</p></div>
+    <div class="mini-card"><strong>Pain / distress</strong><p>Expression of illness, discomfort, fear or emotional distress.</p></div>
+  </div>
+
+  <h3>Stepwise behavioral management</h3>
+  <ol class="step-list">
+    <li>Define the behavior objectively.</li>
+    <li>Identify patterns and triggers with an ABC log.</li>
+    <li>Rule out pain, illness, medication effects, sleep problems and environmental stress.</li>
+    <li>Modify the antecedent: simplify instructions, reduce noise, provide transition warnings and offer choices.</li>
+    <li>Teach an alternative communication response.</li>
+    <li>Reinforce desired behavior immediately and consistently.</li>
+    <li>Measure whether frequency, intensity or duration changes.</li>
+    <li>Refer when risk persists or the functional formulation remains unclear.</li>
+  </ol>
+
+  <h3>ABC recording template</h3>
+  <table>
+    <thead><tr><th>Date/time</th><th>Antecedent</th><th>Behavior</th><th>Consequence</th><th>Possible function</th></tr></thead>
+    <tbody>
+      <tr><td></td><td></td><td></td><td></td><td></td></tr>
+      <tr><td></td><td></td><td></td><td></td><td></td></tr>
+      <tr><td></td><td></td><td></td><td></td><td></td></tr>
+    </tbody>
+  </table>
+</div>
+</section>
+
+<section id="communication">
+<div class="card">
+  <h2>9. Communication: Make the Consultation Accessible</h2>
+
+  <div class="grid">
+    <div class="mini-card"><h3>Speak simply</h3><p>Use short, concrete sentences and one instruction at a time.</p></div>
+    <div class="mini-card"><h3>Allow processing time</h3><p>Do not assume lack of response means lack of understanding.</p></div>
+    <div class="mini-card"><h3>Use visual support</h3><p>Pictures, objects, gestures and demonstrations can improve understanding.</p></div>
+    <div class="mini-card"><h3>Check understanding</h3><p>Ask the person to demonstrate or explain rather than simply asking “Do you understand?”</p></div>
+  </div>
+
+  <div class="callout">
+    <strong>Always speak directly to the patient.</strong> The caregiver can provide essential collateral information,
+    but the person with ID should remain the central participant in the consultation as far as possible.
+  </div>
+</div>
+</section>
+
+<section id="psychiatry">
+<div class="card">
+  <h2>10. Psychiatric Comorbidity</h2>
+
+  <p>
+    Psychiatric disorders can coexist with ID. The diagnostic challenge is often that conventional symptom descriptions
+    are difficult to obtain.
+  </p>
+
+  <h3>Think “change from baseline”</h3>
+  <ul>
+    <li>New social withdrawal</li>
+    <li>Loss of previously enjoyed activities</li>
+    <li>Sleep or appetite change</li>
+    <li>Reduced self-care</li>
+    <li>New irritability or agitation</li>
+    <li>New anxiety or fearfulness</li>
+    <li>New unusual beliefs, perceptual experiences or marked behavioral disorganization</li>
+  </ul>
+
+  <details>
+    <summary>Depression in a person with limited communication</summary>
+    <div class="details-body">
+      <p>Look for a meaningful change in activity, sleep, appetite, social engagement, affect, self-care and previously rewarding activities.
+      Use simple concrete questions and reliable collateral history while remembering that the caregiver's interpretation is not automatically the diagnosis.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>Anxiety / trauma</summary>
+    <div class="details-body">
+      <p>Consider new avoidance, fearfulness, hyperarousal, sleep disturbance, startle, somatic complaints or behavioral changes after a stressful event.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>Psychosis / bipolar disorder</summary>
+    <div class="details-body">
+      <p>Look for a clear departure from baseline: sustained changes in sleep, activity, speech, thought content, behavior and functioning.
+      Specialist assessment is often helpful when diagnostic uncertainty is substantial.</p>
+    </div>
+  </details>
+
+  <div class="callout warning">
+    <strong>Do not diagnose “behavioral problem” simply because the patient has ID.</strong>
+    Establish the baseline and investigate the reason for the change.
+  </div>
+</div>
+</section>
+
+<section id="management">
+<div class="card">
+  <h2>11. Management Principles</h2>
+
+  <h3>Person-centred management</h3>
+  <ul>
+    <li>Set practical goals with the person and caregiver.</li>
+    <li>Prioritize communication, independence, participation and safety.</li>
+    <li>Use the least restrictive intervention that is effective.</li>
+    <li>Coordinate medical, psychological, behavioral, rehabilitation and social support where available.</li>
+  </ul>
+
+  <h3>Medication: a disciplined approach</h3>
+  <div class="callout danger">
+    <strong>Medication should treat a defined target or diagnosed comorbidity.</strong>
+    It should not routinely substitute for environmental adaptation, communication support or caregiver training.
+  </div>
+
+  <ol class="step-list">
+    <li>Define the target symptom or disorder.</li>
+    <li>Document baseline severity/frequency.</li>
+    <li>Choose medication based on the actual diagnosis, comorbidity, interactions and risk profile.</li>
+    <li>Start cautiously when medication is indicated and titrate according to response and tolerability.</li>
+    <li>Monitor sedation, falls, extrapyramidal symptoms, weight/metabolic effects, orthostasis, cognition and behavioral worsening as relevant.</li>
+    <li>Set a review date and reassess whether ongoing medication remains necessary.</li>
+  </ol>
+
+  <div class="callout warning">
+    The medication section is intentionally principle-based. Specific drug selection and dosing should follow the diagnosed condition,
+    patient factors, local formulary, national guidance and specialist recommendations when appropriate.
+  </div>
+</div>
+</section>
+
+<section id="epilepsy">
+<div class="card">
+  <h2>12. Epilepsy & Neurological Comorbidity</h2>
+
+  <p>Epilepsy is an important comorbidity in people with ID. Ask about seizure type, frequency, duration, injuries, triggers,
+  adherence, rescue plans and medication adverse effects.</p>
+
+  <table>
+    <thead><tr><th>Clinical issue</th><th>Why it matters</th></tr></thead>
+    <tbody>
+      <tr><td>Seizure classification</td><td>Antiseizure treatment should be matched to the seizure disorder.</td></tr>
+      <tr><td>Medication adherence</td><td>Missed doses may lead to breakthrough seizures.</td></tr>
+      <tr><td>Behavioral adverse effects</td><td>Some antiseizure medicines can contribute to irritability or behavioral change in susceptible patients.</td></tr>
+      <tr><td>Cognition</td><td>Some medications may worsen cognitive/language functioning in susceptible patients.</td></tr>
+      <tr><td>Reproductive safety</td><td>Some antiseizure medications have important pregnancy/reproductive safety considerations.</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout">
+    Do not choose an antiseizure medication merely because it may also influence mood.
+    Seizure type, efficacy, interactions, adverse effects and individual patient factors come first.
+  </div>
+
+  <h3>When behavior changes in a patient with epilepsy</h3>
+  <ul>
+    <li>Ask whether seizures have increased.</li>
+    <li>Consider postictal behavioral change.</li>
+    <li>Review recent medication initiation, withdrawal or dose changes.</li>
+    <li>Look for sleep deprivation and other seizure precipitants.</li>
+    <li>Consider neurological referral for uncontrolled or diagnostically uncertain seizures.</li>
+  </ul>
+</div>
+</section>
+
+<section id="capacity">
+<div class="card">
+  <h2>13. Capacity, Consent & Autonomy</h2>
+
+  <div class="callout success">
+    <strong>Intellectual disability does not automatically mean lack of decision-making capacity.</strong>
+  </div>
+
+  <p>Capacity should be considered for the specific decision at hand. Support the person to understand and participate as much as possible.</p>
+
+  <ul>
+    <li>Speak directly to the person.</li>
+    <li>Adapt information to their communication level.</li>
+    <li>Use supported decision-making techniques.</li>
+    <li>Allow adequate time.</li>
+    <li>Follow applicable local legal and institutional requirements when capacity is impaired.</li>
+  </ul>
+</div>
+</section>
+
+<section id="safeguarding">
+<div class="card">
+  <h2>14. Safeguarding</h2>
+
+  <p>People with ID may be particularly vulnerable to abuse, coercion, neglect, exploitation and financial harm.</p>
+
+  <div class="grid grid-3">
+    <div class="mini-card"><h3>Physical</h3><p>Unexplained injuries, bruising, recurrent injuries or fear of a caregiver.</p></div>
+    <div class="mini-card"><h3>Sexual</h3><p>Unexplained genital injury, sexually transmitted infection, sexualized behavior or disclosure.</p></div>
+    <div class="mini-card"><h3>Financial / exploitation</h3><p>Unexplained loss of money, possessions, benefits or coercive control.</p></div>
+  </div>
+
+  <h3>Clinical response</h3>
+  <ol>
+    <li>Ensure immediate safety.</li>
+    <li>Where safe and appropriate, speak privately with the patient.</li>
+    <li>Use simple, non-leading questions.</li>
+    <li>Document objective findings and the patient's own words accurately.</li>
+    <li>Follow local safeguarding, medico-legal and emergency procedures.</li>
+  </ol>
+
+  <div class="callout danger">
+    Immediate danger, severe injury or suspected ongoing abuse requires urgent action through the appropriate local pathway.
+  </div>
+</div>
+</section>
+
+<section id="caregiver">
+<div class="card">
+  <h2>15. Caregiver Support</h2>
+
+  <p class="lead">Caregiver education is not an optional add-on—it is often part of the treatment plan.</p>
+
+  <div class="grid">
+    <div class="mini-card"><h3>Teach practical skills</h3><p>Demonstrate one skill, let the caregiver practise, then provide feedback.</p></div>
+    <div class="mini-card"><h3>Predictable routines</h3><p>Regular eating, sleeping, learning, activity and medication routines can reduce avoidable distress.</p></div>
+    <div class="mini-card"><h3>Know the person</h3><p>Identify strengths, preferences, stressors, triggers and the person's best way of learning.</p></div>
+    <div class="mini-card"><h3>Protect caregiver wellbeing</h3><p>Ask about exhaustion, sleep, support, respite and practical barriers.</p></div>
+  </div>
+
+  <div class="callout">
+    A useful caregiver question is:
+    <strong>“What usually makes things better, and what usually makes things worse?”</strong>
+  </div>
+</div>
+</section>
+
+<section id="prevention">
+<div class="card">
+  <h2>16. Preventive & General Medical Care</h2>
+
+  <div class="grid grid-3">
+    <div class="mini-card"><strong>Oral health</strong><p>Dental review, hygiene and treatment of pain.</p></div>
+    <div class="mini-card"><strong>Vision / hearing</strong><p>Assess sensory impairment that can affect function and behavior.</p></div>
+    <div class="mini-card"><strong>Nutrition</strong><p>Assess undernutrition, obesity, dietary quality and physical activity.</p></div>
+    <div class="mini-card"><strong>Sleep</strong><p>Screen for sleep problems and sleep-disordered breathing where appropriate.</p></div>
+    <div class="mini-card"><strong>Vaccination</strong><p>Maintain routine immunization according to local recommendations.</p></div>
+    <div class="mini-card"><strong>Medication review</strong><p>Reconcile medicines and assess adverse effects.</p></div>
+    <div class="mini-card"><strong>Cardiometabolic health</strong><p>Monitor relevant risk factors, especially with psychotropic treatment.</p></div>
+    <div class="mini-card"><strong>Sexual/reproductive health</strong><p>Provide accessible education and appropriate preventive care.</p></div>
+    <div class="mini-card"><strong>Screening</strong><p>Provide age- and risk-appropriate preventive screening according to local guidance.</p></div>
+  </div>
+</div>
+</section>
+
+<section id="referral">
+<div class="card">
+  <h2>17. Referral: When Primary Care Needs Help</h2>
+
+  <table>
+    <thead><tr><th>Situation</th><th>Consider referral to</th></tr></thead>
+    <tbody>
+      <tr><td>Diagnostic uncertainty / formal assessment required</td><td>Psychiatry, psychology, developmental or specialist ID service</td></tr>
+      <tr><td>Persistent challenging behavior despite functional intervention</td><td>Behavioral specialist, psychiatry or multidisciplinary team</td></tr>
+      <tr><td>Seizures, new neurological signs or uncontrolled epilepsy</td><td>Neurology</td></tr>
+      <tr><td>Significant communication difficulty</td><td>Speech/language or communication service</td></tr>
+      <tr><td>Suspected abuse/exploitation</td><td>Safeguarding/social/legal pathway according to local policy</td></tr>
+      <tr><td>Severe self-injury or immediate danger</td><td>Urgent/emergency assessment</td></tr>
+      <tr><td>Marked regression</td><td>Prompt medical/neurological/developmental assessment</td></tr>
+    </tbody>
+  </table>
+</div>
+</section>
+
+<section id="workflow">
+<div class="card">
+  <h2>18. One-Page Primary-Care Clinical Workflow</h2>
+
+  <div class="workflow">
+    <div>Establish baseline</div>
+    <div>Define current problem</div>
+    <div>Medical + HELP review</div>
+    <div>Functional / psychiatric assessment</div>
+    <div>Person-centred plan</div>
+  </div>
+
+  <ol class="step-list" style="margin-top:24px">
+    <li><strong>Baseline:</strong> developmental history + current adaptive functioning.</li>
+    <li><strong>Presenting problem:</strong> health, behavior, communication, mood, seizures or regression.</li>
+    <li><strong>If behavior changed:</strong> use HELP—Health, Environment, Living situation, Psychiatric.</li>
+    <li><strong>Assess function:</strong> conceptual + social + practical domains.</li>
+    <li><strong>Check comorbidity:</strong> epilepsy, sensory impairment, dental/GI problems, sleep, nutrition and psychiatric illness.</li>
+    <li><strong>Build the plan:</strong> communication + environment + caregiver skills + appropriate medical treatment.</li>
+    <li><strong>Medication:</strong> clear indication + target + monitoring + review date.</li>
+    <li><strong>Safety:</strong> capacity, consent and safeguarding when relevant.</li>
+    <li><strong>Refer:</strong> when complexity or risk exceeds primary-care capacity.</li>
+    <li><strong>Follow up:</strong> measure change and simplify the plan where possible.</li>
+  </ol>
+</div>
+</section>
+
+<section id="cases">
+<div class="card">
+  <h2>19. Case-Based Learning</h2>
+
+  <details open>
+    <summary>Case 1 — Sudden aggression</summary>
+    <div class="details-body">
+      <p><strong>Scenario:</strong> A 24-year-old man with ID who is normally calm begins hitting caregivers and refusing meals.
+      The family requests an antipsychotic.</p>
+      <p><strong>Clinical thinking:</strong> Do not jump directly to medication. Review dental pain, constipation, reflux, urinary symptoms,
+      infection, sleep, medication changes and environmental stressors. Then use an ABC log to identify triggers.</p>
+      <p><strong>Lesson:</strong> New aggression is a symptom requiring explanation—not automatically a psychiatric diagnosis.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>Case 2 — “Won't cooperate” with examination</summary>
+    <div class="details-body">
+      <p>A woman with moderate ID becomes distressed during clinic examinations.</p>
+      <p>Use predictable sequencing, visual explanation, short instructions, caregiver coaching and gradual exposure rather than automatically escalating force.</p>
+      <p><strong>Lesson:</strong> communication difficulty and fear may be driving the behavior.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>Case 3 — Depression or baseline behavior?</summary>
+    <div class="details-body">
+      <p>A man with ID becomes socially withdrawn, sleeps more, eats less and stops attending his usual activity.</p>
+      <p>Ask what changed from baseline, obtain appropriate collateral history, investigate medical causes and assess for depression.</p>
+      <p><strong>Lesson:</strong> do not dismiss new symptoms as “part of the disability.”</p>
+    </div>
+  </details>
+</div>
+</section>
+
+<section id="quiz">
+<div class="card">
+  <h2>20. Quick Self-Test</h2>
+
+  <div class="quiz">
+    <p><strong>Question 1:</strong> A person with ID suddenly becomes aggressive. What should be considered first?</p>
+    <button onclick="showAnswer('a1')">A. Increase antipsychotic</button>
+    <button onclick="showAnswer('a1')">B. Look for health/environmental causes and establish the trigger</button>
+    <button onclick="showAnswer('a1')">C. Assume psychosis</button>
+    <div id="a1" class="answer"><strong>Answer: B.</strong> Sudden behavioral change requires assessment for physical illness, pain, medication effects, environmental disruption, safeguarding and psychiatric causes.</div>
+
+    <hr>
+
+    <p><strong>Question 2:</strong> Which is the most useful way to assess functional severity?</p>
+    <button onclick="showAnswer('a2')">A. IQ alone</button>
+    <button onclick="showAnswer('a2')">B. Adaptive functioning and support needs</button>
+    <button onclick="showAnswer('a2')">C. Number of medications</button>
+    <div id="a2" class="answer"><strong>Answer: B.</strong> Functional assessment considers conceptual, social and practical adaptive functioning and the support required.</div>
+
+    <hr>
+
+    <p><strong>Question 3:</strong> In an ABC log, what does “A” represent?</p>
+    <button onclick="showAnswer('a3')">A. Assessment</button>
+    <button onclick="showAnswer('a3')">B. Antecedent</button>
+    <button onclick="showAnswer('a3')">C. Aggression</button>
+    <div id="a3" class="answer"><strong>Answer: B.</strong> Antecedent = what happened immediately before the behavior.</div>
+
+    <hr>
+
+    <p><strong>Question 4:</strong> Does ID automatically mean lack of decision-making capacity?</p>
+    <button onclick="showAnswer('a4')">Yes</button>
+    <button onclick="showAnswer('a4')">No</button>
+    <div id="a4" class="answer"><strong>Answer: No.</strong> Capacity is decision-specific. The person should be supported to participate as much as possible.</div>
+  </div>
+</div>
+</section>
+
+<section id="references">
+<div class="card">
+  <h2>References & Further Reading</h2>
+  <p>
+    The page is intended as a clinical learning resource. For diagnosis, prescribing, safeguarding and legal issues,
+    use current national/local guidance and specialist advice where appropriate.
+  </p>
+
+  <ul>
+    <li>
+      <strong>World Health Organization (WHO) — mhGAP Intervention Guide</strong>:
+      <a href="https://www.who.int/publications/i/item/9789241549790" target="_blank" rel="noopener">WHO mhGAP-IG Version 2.0</a>
+    </li>
+    <li>
+      <strong>WHO — Intellectual disability evidence resources</strong>:
+      <a href="https://www.who.int/teams/mental-health-and-substance-use/treatment-care/mental-health-gap-action-programme/evidence-centre/child-and-adolescent-mental-disorders/interventions-for-management-of-children-with-intellectual-disabilities" target="_blank" rel="noopener">WHO evidence centre</a>
+    </li>
+    <li>
+      <strong>WHO — Mental health in primary care</strong>:
+      <a href="https://www.emro.who.int/mnh/publications/mental-health-in-primary-care.html" target="_blank" rel="noopener">WHO EMRO guidance</a>
+    </li>
+    <li>
+      <strong>NICE — Challenging behaviour and learning disabilities</strong>:
+      <a href="https://www.nice.org.uk/guidance/ng11" target="_blank" rel="noopener">NICE NG11</a>
+    </li>
+  </ul>
+
+  <div class="callout warning">
+    <strong>Clinical disclaimer:</strong> This webpage is an educational resource, not a substitute for individualized clinical assessment,
+    current prescribing information, local law, emergency protocols or specialist consultation.
+  </div>
+</div>
+</section>
+
+</div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <h3 style="color:#fff">Primary Care Management of Intellectual Disability</h3>
+    <p>Clinical learning resource | Dr. Hamid Fazal</p>
+    <p class="small">
+      Designed for practical learning in primary/community care and resource-limited settings.
+      Content should be reviewed periodically against current guidelines.
+    </p>
+  </div>
+</footer>
+
+<button class="backtop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">↑</button>
+
+<script>
+function showAnswer(id){
+  document.querySelectorAll('.answer').forEach(function(el){
+    el.style.display = 'none';
+  });
+  document.getElementById(id).style.display = 'block';
+}
+</script>
 
 </body>
 </html>
